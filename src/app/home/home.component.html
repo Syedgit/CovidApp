@@ -1,0 +1,36 @@
+<div class="container" style="margin-top: 70px;">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>State</th>
+        <th>Cases</th>
+        <th>Growth rate</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let state of states">
+
+        <td>{{ state.id }}</td>
+        <td> {{ state.name }}</td>
+        <td> {{ state.cases }}</td>
+        <td> {{ state.growthRate }}</td>
+        <td>
+          <button class="btn btn-primary" (click)="selectState(state)"> Show details</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="card text-center" *ngIf="selectedState">
+      <div class="card-header">
+        # {{selectedState.id}}
+      </div>
+      <div class="card-block">
+        <h4 class="card-title">{{selectedState.name}}</h4>
+        <p class="card-text">
+          {{selectedState.growthRate}}
+        </p>    
+      </div>
+
+    </div>
+</div>
