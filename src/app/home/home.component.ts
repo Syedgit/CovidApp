@@ -16,9 +16,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.dataService.getCountriesData()
     .subscribe(result => { 
-      this.countries = result
-      this.page = 1;
-      this.pageSize = 6;
+      console.log("localResult", result);
     });
     
   }

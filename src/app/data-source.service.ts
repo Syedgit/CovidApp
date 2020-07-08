@@ -8,7 +8,7 @@ import { map } from "rxjs/operators";
 export class DataSourceService {
 
  URL: string = "local";
- getCountriesURL: string = "https://corona.lmao.ninja/countries"
+ getCountriesURL: string = "http://127.0.0.1:9001/map"
   constructor(private http: HttpClient) { }
 
   public createFiles(file: any): Observable<any> {
@@ -18,7 +18,7 @@ export class DataSourceService {
   }
 
   public getCountriesData (): Observable<any> {
-    return this.http.get(this.getCountriesURL)
+    return this.http.post(this.getCountriesURL, { "id": 470 })
     .pipe(map((response: any) =>  response));
   }
 
